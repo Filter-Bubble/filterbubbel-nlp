@@ -1,0 +1,15 @@
+[submodule "tools/bert"]
+	path = tools/bert
+	url = https://github.com/google-research/bert.git
+[submodule "tools/flair-experiments"]
+	path = tools/flair-experiments
+	url = https://github.com/stefan-it/flair-experiments.git
+[submodule "tools/frog"]
+	path = tools/frog
+	url = https://github.com/LanguageMachines/frog.git
+[submodule "tools/lassy2ud"]
+	path = tools/lassy2ud
+	url = https://github.com/gossebouma/lassy2ud.git
+[submodule "tools/sentencepiece"]
+	path = tools/sentencepiece
+	url = https://github.com/google/sentencepiece.git
