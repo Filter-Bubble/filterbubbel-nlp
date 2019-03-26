@@ -10,6 +10,7 @@ Frog    | 2007 | morphosyntactic tagger and parser for Dutch    |             | 
 NLTK    |      |                                                |             |           | 
 RNNTagger  |      | RNN                                         |             |    ?      | 
 spaCy   | 2018 | machine learning                               |    86.88    |  91.45    | 
+Tadpole | 2007? | Rule based
 TreeTagger | 1995 | decision trees                              |             |    ?      | 
 
 ## [ALPINO](http://www.let.rug.nl/vannoord/alp/Alpino/)
@@ -63,6 +64,11 @@ LAS scores for english are between 89.66 and 90.97, NER F 85.86 and 86.62.
 The Dutch sores are LAS 77.62 and NER F 87.02.
 
 Assuming Dutch and English are "just as hard", and the only difference is due to amount of labelled data, we can expect some improvements.
+
+## [Tadpole]()
+
+An efficient memory-based morphosyntactic tagger and parser for Dutch
+Antal van den Bosch, Bertjan Busser, Sander Canisius, Walter Daelemans
 
 
 ## [TreeTagger](http://www.cis.uni-muenchen.de/~schmid/tools/TreeTagger/)

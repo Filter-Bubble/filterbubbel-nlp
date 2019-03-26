@@ -1,5 +1,8 @@
 # Utilities
 
+[CoNNL 2018 evaluation](http://universaldependencies.org/conll18/evaluation.html)
+Evaluation metrics and standardized script for scoring dependency parse and POS.
+
 [SentencePiece](https://github.com/google/sentencepiece)
 Unsupervised text tokenizer for Neural Network-based text generation.
 

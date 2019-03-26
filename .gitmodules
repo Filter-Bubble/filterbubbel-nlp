@@ -13,3 +13,9 @@
 [submodule "tools/sentencepiece"]
 	path = tools/sentencepiece
 	url = https://github.com/google/sentencepiece.git
+[submodule "tools/Parser-v1"]
+	path = tools/Parser-v1
+	url = https://github.com/tdozat/Parser-v1.git
+[submodule "tools/jPTDP"]
+	path = tools/jPTDP
+	url = https://github.com/datquocnguyen/jPTDP.git
