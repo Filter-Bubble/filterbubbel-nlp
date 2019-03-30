@@ -1,0 +1,236 @@
+There are multiple roots in a sentence 140
+There are multiple roots in a sentence 365
+There are multiple roots in a sentence 783
+There are multiple roots in a sentence 1431
+There are multiple roots in a sentence 1612
+There are multiple roots in a sentence 1715
+There are multiple roots in a sentence 2808
+There are multiple roots in a sentence 2831
+There are multiple roots in a sentence 2871
+There are multiple roots in a sentence 2911
+There are multiple roots in a sentence 3009
+There are multiple roots in a sentence 3035
+There are multiple roots in a sentence 3077
+There are multiple roots in a sentence 3189
+There are multiple roots in a sentence 3905
+There are multiple roots in a sentence 4151
+There are multiple roots in a sentence 4474
+There are multiple roots in a sentence 4593
+There are multiple roots in a sentence 4752
+There are multiple roots in a sentence 4792
+There are multiple roots in a sentence 5400
+There are multiple roots in a sentence 5685
+There are multiple roots in a sentence 5707
+There are multiple roots in a sentence 5746
+There are multiple roots in a sentence 6310
+There are multiple roots in a sentence 6436
+There are multiple roots in a sentence 6560
+There are multiple roots in a sentence 6615
+There are multiple roots in a sentence 6628
+There are multiple roots in a sentence 6638
+There are multiple roots in a sentence 6764
+There are multiple roots in a sentence 6942
+There are multiple roots in a sentence 7175
+There are multiple roots in a sentence 7377
+There are multiple roots in a sentence 7480
+There are multiple roots in a sentence 7858
+There are multiple roots in a sentence 8148
+There are multiple roots in a sentence 9080
+There are multiple roots in a sentence 9309
+There are multiple roots in a sentence 9551
+There are multiple roots in a sentence 9629
+There are multiple roots in a sentence 9662
+There are multiple roots in a sentence 9864
+There are multiple roots in a sentence 10020
+There are multiple roots in a sentence 10184
+There are multiple roots in a sentence 10666
+There are multiple roots in a sentence 10823
+There are multiple roots in a sentence 11085
+There are multiple roots in a sentence 11313
+There are multiple roots in a sentence 11792
+There are multiple roots in a sentence 11927
+There are multiple roots in a sentence 13878
+There are multiple roots in a sentence 13972
+There are multiple roots in a sentence 14006
+There are multiple roots in a sentence 14528
+There are multiple roots in a sentence 15193
+There are multiple roots in a sentence 15583
+There are multiple roots in a sentence 16827
+There are multiple roots in a sentence 17790
+There are multiple roots in a sentence 17930
+There are multiple roots in a sentence 18034
+There are multiple roots in a sentence 18776
+There are multiple roots in a sentence 19169
+There are multiple roots in a sentence 19273
+There are multiple roots in a sentence 19383
+There are multiple roots in a sentence 19401
+There are multiple roots in a sentence 19656
+There are multiple roots in a sentence 19854
+There are multiple roots in a sentence 20055
+There are multiple roots in a sentence 20633
+There are multiple roots in a sentence 20754
+There are multiple roots in a sentence 20807
+There are multiple roots in a sentence 21102
+There are multiple roots in a sentence 21285
+There are multiple roots in a sentence 21328
+There are multiple roots in a sentence 21675
+There are multiple roots in a sentence 21878
+There are multiple roots in a sentence 23409
+There are multiple roots in a sentence 25789
+There are multiple roots in a sentence 26098
+There are multiple roots in a sentence 26146
+There are multiple roots in a sentence 26216
+Incorrect word ID '1' for word 'a', expected '18'
+Incorrect word ID '2' for word '"', expected '19'
+Incorrect word ID '3' for word '.', expected '20'
+There are multiple roots in a sentence 26300
+There are multiple roots in a sentence 26708
+There are multiple roots in a sentence 26744
+There are multiple roots in a sentence 26932
+There are multiple roots in a sentence 27561
+There are multiple roots in a sentence 27602
+There are multiple roots in a sentence 27689
+There are multiple roots in a sentence 27724
+There are multiple roots in a sentence 27782
+There are multiple roots in a sentence 27880
+There are multiple roots in a sentence 28119
+There are multiple roots in a sentence 28198
+There are multiple roots in a sentence 28279
+There are multiple roots in a sentence 28824
+There are multiple roots in a sentence 28830
+There are multiple roots in a sentence 28837
+Incorrect word ID '1' for word ':', expected '3'
+Incorrect word ID '2' for word '4', expected '4'
+There are multiple roots in a sentence 28859
+There are multiple roots in a sentence 28865
+There are multiple roots in a sentence 29004
+There are multiple roots in a sentence 29413
+There are multiple roots in a sentence 29542
+There are multiple roots in a sentence 29593
+There are multiple roots in a sentence 29630
+There are multiple roots in a sentence 29723
+There are multiple roots in a sentence 29742
+There are multiple roots in a sentence 29769
+There are multiple roots in a sentence 30014
+There are multiple roots in a sentence 30089
+There are multiple roots in a sentence 30244
+There are multiple roots in a sentence 30352
+There are multiple roots in a sentence 31432
+There are multiple roots in a sentence 31539
+There are multiple roots in a sentence 31737
+There are multiple roots in a sentence 32415
+There are multiple roots in a sentence 32571
+There are multiple roots in a sentence 33296
+There are multiple roots in a sentence 33814
+There are multiple roots in a sentence 34328
+There are multiple roots in a sentence 34696
+There are multiple roots in a sentence 34876
+There are multiple roots in a sentence 35171
+There are multiple roots in a sentence 35403
+There are multiple roots in a sentence 35494
+There are multiple roots in a sentence 35858
+There are multiple roots in a sentence 36102
+There are multiple roots in a sentence 36476
+There are multiple roots in a sentence 36622
+There are multiple roots in a sentence 36945
+There are multiple roots in a sentence 37039
+There are multiple roots in a sentence 37287
+There are multiple roots in a sentence 37343
+There are multiple roots in a sentence 37401
+There are multiple roots in a sentence 37423
+There are multiple roots in a sentence 37541
+There are multiple roots in a sentence 37602
+There are multiple roots in a sentence 37847
+There are multiple roots in a sentence 38059
+There are multiple roots in a sentence 38109
+There are multiple roots in a sentence 38133
+There are multiple roots in a sentence 38157
+There are multiple roots in a sentence 38179
+There are multiple roots in a sentence 38204
+There are multiple roots in a sentence 38228
+There are multiple roots in a sentence 38275
+There are multiple roots in a sentence 38303
+There are multiple roots in a sentence 38330
+There are multiple roots in a sentence 38462
+There are multiple roots in a sentence 39052
+There are multiple roots in a sentence 39239
+There are multiple roots in a sentence 39480
+There are multiple roots in a sentence 39553
+There are multiple roots in a sentence 39729
+There are multiple roots in a sentence 39899
+There are multiple roots in a sentence 40026
+There are multiple roots in a sentence 40172
+There are multiple roots in a sentence 40670
+There are multiple roots in a sentence 40817
+There are multiple roots in a sentence 40879
+There are multiple roots in a sentence 40934
+There are multiple roots in a sentence 41039
+There are multiple roots in a sentence 41091
+There are multiple roots in a sentence 42226
+There are multiple roots in a sentence 43189
+There are multiple roots in a sentence 43859
+There are multiple roots in a sentence 43888
+There are multiple roots in a sentence 43934
+There are multiple roots in a sentence 43972
+There are multiple roots in a sentence 44021
+There are multiple roots in a sentence 44053
+There are multiple roots in a sentence 44088
+There are multiple roots in a sentence 44134
+There are multiple roots in a sentence 44183
+There are multiple roots in a sentence 44210
+There are multiple roots in a sentence 44248
+There are multiple roots in a sentence 44292
+There are multiple roots in a sentence 44770
+There are multiple roots in a sentence 44911
+There are multiple roots in a sentence 45402
+There are multiple roots in a sentence 47037
+There are multiple roots in a sentence 47360
+There are multiple roots in a sentence 47633
+There are multiple roots in a sentence 47740
+There are multiple roots in a sentence 48119
+Incorrect word ID '1' for word 'A', expected '36'
+Incorrect word ID '2' for word '/', expected '37'
+Incorrect word ID '3' for word 'Spirit', expected '38'
+Incorrect word ID '4' for word 'en', expected '39'
+Incorrect word ID '5' for word 'het', expected '40'
+Incorrect word ID '6' for word 'kartel', expected '41'
+Incorrect word ID '7' for word 'VLD', expected '42'
+Incorrect word ID '8' for word '/', expected '43'
+Incorrect word ID '9' for word 'Vivant', expected '44'
+Incorrect word ID '10' for word '.', expected '45'
+There are multiple roots in a sentence 48301
+There are multiple roots in a sentence 49230
+There are multiple roots in a sentence 49365
+There are multiple roots in a sentence 49561
+There are multiple roots in a sentence 50193
+There are multiple roots in a sentence 50673
+There are multiple roots in a sentence 51768
+There are multiple roots in a sentence 52491
+There are multiple roots in a sentence 52875
+There are multiple roots in a sentence 53399
+There are multiple roots in a sentence 54063
+There are multiple roots in a sentence 54173
+There are multiple roots in a sentence 54994
+There are multiple roots in a sentence 55697
+There are multiple roots in a sentence 56572
+There are multiple roots in a sentence 57344
+There are multiple roots in a sentence 57935
+There are multiple roots in a sentence 58246
+There are multiple roots in a sentence 58739
+The concatenation of tokens in gold file and in system file differ!
+First 20 differing characters in gold file: 'welbijFrankrijk(ratt' and system file: '_welbijFrankrijk(rat'
+Metric     | Precision |    Recall |  F1 Score | AligndAcc
+-----------+-----------+-----------+-----------+-----------
+Tokens     |      3.72 |      3.59 |      3.66 |
+Sentences  |      1.26 |      1.26 |      1.26 |
+Words      |      3.72 |      3.59 |      3.66 |
+UPOS       |      2.28 |      2.20 |      2.24 |     61.30
+XPOS       |      0.00 |      0.00 |      0.00 |      0.00
+UFeats     |      1.48 |      1.43 |      1.45 |     39.66
+AllTags    |      0.00 |      0.00 |      0.00 |      0.00
+Lemmas     |      1.83 |      1.76 |      1.79 |     49.04
+UAS        |      0.70 |      0.67 |      0.69 |     18.75
+LAS        |      0.22 |      0.22 |      0.22 |      6.01
+CLAS       |      0.00 |      0.00 |      0.00 |      0.00
+MLAS       |      0.00 |      0.00 |      0.00 |      0.00
+BLEX       |      0.00 |      0.00 |      0.00 |      0.00
