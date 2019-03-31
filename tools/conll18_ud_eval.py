@@ -198,7 +198,11 @@ def load_conllu(file):
                 if word.parent is None:
                     head = int(word.columns[HEAD])
                     if head < 0 or head > len(ud.words) - sentence_start:
-                        raise UDError("HEAD '{}' points outside of the sentence".format(_encode(word.columns[HEAD])))
+                        print ("HEAD '{}' points outside of the sentence".format(_encode(word.columns[HEAD])))
+                        if head < 0:
+                            head = 0
+                        else:
+                            head = len(ud.words) - sentence_start - 1
                     if head:
                         parent = ud.words[sentence_start + head - 1]
                         word.parent = "remapping"
