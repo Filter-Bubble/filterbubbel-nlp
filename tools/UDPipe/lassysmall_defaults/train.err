@@ -1,0 +1,153 @@
+Loading training data: done.
+Training the UDPipe model.
+Training tokenizer with the following options: tokenize_url=1, allow_spaces=0, dimension=24
+  epochs=100, batch_size=50, segment_size=50, learning_rate=0.0050, learning_rate_final=0.0000
+  dropout=0.1000, early_stopping=0
+Epoch 1, logprob: -5.8723e+04, training acc: 96.11%
+Epoch 2, logprob: -1.1901e+04, training acc: 99.18%
+Epoch 3, logprob: -9.4284e+03, training acc: 99.29%
+Epoch 4, logprob: -8.3268e+03, training acc: 99.39%
+Epoch 5, logprob: -7.7737e+03, training acc: 99.43%
+Epoch 6, logprob: -7.4783e+03, training acc: 99.44%
+Epoch 7, logprob: -7.2524e+03, training acc: 99.45%
+Epoch 8, logprob: -6.9195e+03, training acc: 99.48%
+Epoch 9, logprob: -6.7819e+03, training acc: 99.49%
+Epoch 10, logprob: -6.4674e+03, training acc: 99.50%
+Epoch 11, logprob: -6.4444e+03, training acc: 99.51%
+Epoch 12, logprob: -6.0971e+03, training acc: 99.54%
+Epoch 13, logprob: -6.1459e+03, training acc: 99.53%
+Epoch 14, logprob: -6.2085e+03, training acc: 99.52%
+Epoch 15, logprob: -6.0439e+03, training acc: 99.54%
+Epoch 16, logprob: -5.9591e+03, training acc: 99.55%
+Epoch 17, logprob: -5.8506e+03, training acc: 99.56%
+Epoch 18, logprob: -5.8464e+03, training acc: 99.55%
+Epoch 19, logprob: -5.6068e+03, training acc: 99.57%
+Epoch 20, logprob: -5.6774e+03, training acc: 99.57%
+Epoch 21, logprob: -5.6217e+03, training acc: 99.57%
+Epoch 22, logprob: -5.4983e+03, training acc: 99.58%
+Epoch 23, logprob: -5.3490e+03, training acc: 99.59%
+Epoch 24, logprob: -5.5567e+03, training acc: 99.57%
+Epoch 25, logprob: -5.3604e+03, training acc: 99.60%
+Epoch 26, logprob: -5.4097e+03, training acc: 99.58%
+Epoch 27, logprob: -5.4333e+03, training acc: 99.58%
+Epoch 28, logprob: -5.2341e+03, training acc: 99.60%
+Epoch 29, logprob: -5.4159e+03, training acc: 99.57%
+Epoch 30, logprob: -5.3506e+03, training acc: 99.58%
+Epoch 31, logprob: -5.0769e+03, training acc: 99.62%
+Epoch 32, logprob: -5.1689e+03, training acc: 99.59%
+Epoch 33, logprob: -5.1390e+03, training acc: 99.60%
+Epoch 34, logprob: -5.2817e+03, training acc: 99.59%
+Epoch 35, logprob: -5.1948e+03, training acc: 99.59%
+Epoch 36, logprob: -5.0389e+03, training acc: 99.61%
+Epoch 37, logprob: -5.0038e+03, training acc: 99.62%
+Epoch 38, logprob: -5.0757e+03, training acc: 99.61%
+Epoch 39, logprob: -5.0174e+03, training acc: 99.61%
+Epoch 40, logprob: -5.1778e+03, training acc: 99.60%
+Epoch 41, logprob: -4.9887e+03, training acc: 99.62%
+Epoch 42, logprob: -4.9848e+03, training acc: 99.62%
+Epoch 43, logprob: -5.0195e+03, training acc: 99.61%
+Epoch 44, logprob: -4.9914e+03, training acc: 99.62%
+Epoch 45, logprob: -4.9076e+03, training acc: 99.62%
+Epoch 46, logprob: -5.0086e+03, training acc: 99.61%
+Epoch 47, logprob: -4.8244e+03, training acc: 99.63%
+Epoch 48, logprob: -4.9895e+03, training acc: 99.62%
+Epoch 49, logprob: -5.0390e+03, training acc: 99.61%
+Epoch 50, logprob: -4.9517e+03, training acc: 99.61%
+Epoch 51, logprob: -4.7608e+03, training acc: 99.63%
+Epoch 52, logprob: -4.7668e+03, training acc: 99.64%
+Epoch 53, logprob: -5.0005e+03, training acc: 99.62%
+Epoch 54, logprob: -4.8014e+03, training acc: 99.63%
+Epoch 55, logprob: -4.8393e+03, training acc: 99.62%
+Epoch 56, logprob: -4.8670e+03, training acc: 99.63%
+Epoch 57, logprob: -4.7627e+03, training acc: 99.63%
+Epoch 58, logprob: -4.7258e+03, training acc: 99.63%
+Epoch 59, logprob: -5.0084e+03, training acc: 99.62%
+Epoch 60, logprob: -4.7523e+03, training acc: 99.64%
+Epoch 61, logprob: -4.8661e+03, training acc: 99.62%
+Epoch 62, logprob: -4.7282e+03, training acc: 99.64%
+Epoch 63, logprob: -4.9483e+03, training acc: 99.62%
+Epoch 64, logprob: -4.6222e+03, training acc: 99.64%
+Epoch 65, logprob: -4.7759e+03, training acc: 99.64%
+Epoch 66, logprob: -4.7661e+03, training acc: 99.62%
+Epoch 67, logprob: -4.8276e+03, training acc: 99.62%
+Epoch 68, logprob: -4.9028e+03, training acc: 99.62%
+Epoch 69, logprob: -4.7534e+03, training acc: 99.64%
+Epoch 70, logprob: -4.7401e+03, training acc: 99.63%
+Epoch 71, logprob: -4.7684e+03, training acc: 99.63%
+Epoch 72, logprob: -4.6687e+03, training acc: 99.64%
+Epoch 73, logprob: -4.7693e+03, training acc: 99.63%
+Epoch 74, logprob: -4.5452e+03, training acc: 99.64%
+Epoch 75, logprob: -4.7171e+03, training acc: 99.63%
+Epoch 76, logprob: -4.7055e+03, training acc: 99.63%
+Epoch 77, logprob: -4.7721e+03, training acc: 99.62%
+Epoch 78, logprob: -4.6349e+03, training acc: 99.64%
+Epoch 79, logprob: -4.6962e+03, training acc: 99.63%
+Epoch 80, logprob: -4.7473e+03, training acc: 99.62%
+Epoch 81, logprob: -4.6266e+03, training acc: 99.64%
+Epoch 82, logprob: -4.6041e+03, training acc: 99.64%
+Epoch 83, logprob: -4.5234e+03, training acc: 99.65%
+Epoch 84, logprob: -4.6578e+03, training acc: 99.63%
+Epoch 85, logprob: -4.6116e+03, training acc: 99.64%
+Epoch 86, logprob: -4.6585e+03, training acc: 99.65%
+Epoch 87, logprob: -4.6624e+03, training acc: 99.63%
+Epoch 88, logprob: -4.5624e+03, training acc: 99.64%
+Epoch 89, logprob: -4.5693e+03, training acc: 99.64%
+Epoch 90, logprob: -4.6697e+03, training acc: 99.64%
+Epoch 91, logprob: -4.7180e+03, training acc: 99.63%
+Epoch 92, logprob: -4.5993e+03, training acc: 99.63%
+Epoch 93, logprob: -4.6057e+03, training acc: 99.64%
+Epoch 94, logprob: -4.3418e+03, training acc: 99.65%
+Epoch 95, logprob: -4.4511e+03, training acc: 99.65%
+Epoch 96, logprob: -4.4397e+03, training acc: 99.65%
+Epoch 97, logprob: -4.8886e+03, training acc: 99.62%
+Epoch 98, logprob: -4.4530e+03, training acc: 99.66%
+Epoch 99, logprob: -4.5687e+03, training acc: 99.64%
+Epoch 100, logprob: -4.5805e+03, training acc: 99.65%
+Tagger model 1 columns: lemma use=1/provide=1, xpostag use=1/provide=1, feats use=1/provide=1
+Creating morphological dictionary for tagger model 1.
+Tagger model 1 dictionary options: max_form_analyses=0, custom dictionary_file=none
+Tagger model 1 guesser options: suffix_rules=8, prefixes_max=4, prefix_min_count=10, enrich_dictionary=6
+Tagger model 1 options: iterations=20, early_stopping=0, templates=tagger
+Training tagger model 1.
+Iteration 1: done, accuracy 84.87%
+Iteration 2: done, accuracy 94.60%
+Iteration 3: done, accuracy 96.84%
+Iteration 4: done, accuracy 97.77%
+Iteration 5: done, accuracy 98.21%
+Iteration 6: done, accuracy 98.62%
+Iteration 7: done, accuracy 98.83%
+Iteration 8: done, accuracy 99.07%
+Iteration 9: done, accuracy 99.15%
+Iteration 10: done, accuracy 99.39%
+Iteration 11: done, accuracy 99.47%
+Iteration 12: done, accuracy 99.59%
+Iteration 13: done, accuracy 99.62%
+Iteration 14: done, accuracy 99.67%
+Iteration 15: done, accuracy 99.70%
+Iteration 16: done, accuracy 99.62%
+Iteration 17: done, accuracy 99.61%
+Iteration 18: done, accuracy 99.72%
+Iteration 19: done, accuracy 99.73%
+Iteration 20: done, accuracy 99.77%
+Parser transition options: system=projective, oracle=dynamic, structured_interval=8, single_root=1
+Parser uses lemmas/upos/xpos/feats: automatically generated by tagger
+Parser embeddings options: upostag=20, feats=20, xpostag=0, form=50, lemma=0, deprel=20
+  form mincount=2, precomputed form embeddings=none
+  lemma mincount=2, precomputed lemma embeddings=none
+Parser network options: iterations=10, hidden_layer=200, batch_size=10,
+  learning_rate=0.0200, learning_rate_final=0.0010, l2=0.5000, early_stopping=0
+Initialized 'universal_tag' embedding with 0,16 words and 0.0%,100.0% coverage.
+Initialized 'feats' embedding with 0,37 words and 0.0%,100.0% coverage.
+Initialized 'form' embedding with 0,5215 words and 0.0%,89.3% coverage.
+Initialized 'deprel' embedding with 0,35 words and 0.0%,100.0% coverage.
+Iteration 1: training logprob -9.6804e+04
+Iteration 2: training logprob -1.5217e+05
+Iteration 3: training logprob -1.1434e+05
+Iteration 4: training logprob -9.2333e+04
+Iteration 5: training logprob -7.4269e+04
+Iteration 6: training logprob -6.2352e+04
+Iteration 7: training logprob -5.4627e+04
+Iteration 8: training logprob -5.0161e+04
+Iteration 9: training logprob -4.6453e+04
+Iteration 10: training logprob -4.4858e+04
+The trained UDPipe model was saved.

@@ -4,17 +4,17 @@ The datasets are too large to include in this repo (or cannot be shared for othe
 Obtaining a copy is up to you.
 
 
-Dataset       | Year | NER | POS | dep | srl  | coref |
----           | ---  | --- | --- | --- | ---  | --- |
-CONLL2002     | 2002 |   X |     |     |      |     |
-COREA         | 2008 |     |     |     |      |  X  |
-CGN           | 2013 |     | X   |     |      |     | 
-LassySmall    | 2016 |     | X   | X   |      |     |
-Eindhoven     | 2014 |     | X   |     |      |     |
-SoNaR-1       | 2015 |   X | X   | X   |  X   |  X  |
-UD Dutch Alpino     | 2017 |     | X   |      |     | 
-UD Dutch LassySmall | 2016 |     | X   |      |     | 
-WikiNER       | 2012 |   X | ?   |     |      |     |
+Dataset             | Year | NER | POS | dep | srl  | coref |
+---                 | ---  | --- | --- | --- | ---  | ----- |
+CONLL2002           | 2002 |   X | X   |     |      |       |
+COREA               | 2008 |     |     |     |      |  X    |
+WikiNER             | 2012 |   X |     |     |      |       |
+CGN                 | 2013 |     | X   |     |      |       |
+Eindhoven           | 2014 |     | X   |     |      |       |
+SoNaR-1             | 2015 |   X | X   | X   |  X   |  X    |
+LassySmall          | 2016 |     | X   | X   |      |       |
+UD Dutch LassySmall | 2016 |     | X   | X   |      |       |
+UD Dutch Alpino     | 2017 |     | X   | X   |      |       |
 
 
 ## [CoNLL2002](https://www.clips.uantwerpen.be/conll2002/ner/)
@@ -39,7 +39,6 @@ In this COREA project, a two-year project which started in July 2005, we aim to 
 
 Downloaded ```COREA_Corpus_1.0.1p1.zip``` at 2019-03-19.
 
-
 ## [Corpus Gesproken Nederlands](https://ivdnt.org/images/stories/producten/documentatie/cgn_website/doc_English/topics/index.htm)
 
 The Spoken Dutch Corpus project was aimed at the construction of a database of contemporary standard Dutch as spoken by adults in The Netherlands and Flanders. The intended size of the corpus was ten million words (about 1,000 hours of speech), two thirds of which would originate from the Netherlands and one third from Flanders. In this release, the results are presented that have emerged from the project. The total number of words available here is nearly 9 million. Some 3.3 million words were collected in Flanders, well over 5.6 million in The Netherlands.
@@ -50,6 +49,9 @@ The "Instituut voor de Nederlandse Taal" offers a [download link on their websit
 
 Downloaded version 2.0.3 at 2019-03-19.
 
+The POS tags need to be mapped to UPOS for evaluation on the universal dependencies.
+Suggested mapping is [here](https://universaldependencies.org/tagset-conversion/nl-cgn-uposf.html)
+
 
 ## [Eindhoven corpus](https://ivdnt.org/downloads/taalmaterialen/tstc-eindhoven-corpus)
 
@@ -57,7 +59,9 @@ Het Eindhoven-corpus (VU-versie) is een verzameling Nederlandstalige geschreven 
 
 About 60k sentences, with labelled words.
 
+VU-version from 1975
 Downloaded v 2.0.1 at 2019-03-19
+
 
 
 ## [Lassy](http://www.let.rug.nl/~vannoord/Lassy/)
@@ -121,6 +125,33 @@ The General Language Understanding Evaluation (GLUE) benchmark is a collection o
 
 The format of the GLUE benchmark is model-agnostic, so any system capable of processing sentence and sentence pairs and producing corresponding predictions is eligible to participate. The benchmark tasks are selected so as to favor models that share information across tasks using parameter sharing or other transfer learning techniques. The ultimate goal of GLUE is to drive research in the development of general and robust natural language understanding systems.
 
+
+
+## Timeline
+
+Eindhoven corpus
+  * dagbladen component CDBL (10% of total) is merged into the Alpino Treebank
+  * there is more POS annotation, but without DEP
+
+CGN
+  * part of it is merged into Lassy, the Lassy Large (automatically annotated parts)
+
+Alpino
+  * Text comes from Eindhoven corpus, some parts of LassySmall, and other collections
+
+Lassy
+  * Text comes from DPC (Dutch Parallel Corpus), D-Coi, Wikipedia
+  * Lassy Small is merged into Sonar and parts of it to Alpino
+
+COREA
+  * Text comes from DCOI, CGN, and Winkler Prins Medische Encyclopedie
+
+SONAR
+  * Text comes from Lassy Small
+
+Use:
+ * UD lassysmall, UD alpino, and a subset of lassysmall for POS, DEP
+ * Overlap between sonar / corea. TODO: how much? is it a problem?
 
 # Datasets not suitable to our tasks
 
