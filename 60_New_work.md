@@ -64,23 +64,6 @@ Eliyahu Kiperwasser, Yoav Goldberg
 
 ## POS + Dependency
 
-[An improved neural network model for joint POS tagging and dependency parsing](https://arxiv.org/abs/1807.03955)
-Dat Quoc Nguyen, Karin Verspoor
-
-> Our parsing component can be viewed as an extension of the BIST graph-based dependency model (Kiperwasser and Goldberg, 2016), where we additionally incorporate the character-level vector representations of words.
-
-* combined POS + dependency parsing based on BiLSTM models, character embeddings (per word), and optional external word vectors.
-* word vector (static, external) + forward character lm per word + backward character lm per word
-* forward lstm + backward lstm for POS tags
-* forward lstm + backward lstm for concat layer
-* MLP + parse projection
-* code available (jPTDP) for python using Dynet (cpu + gpu support)
-
-Model      |  Alpino UPOS | UAS   | LAS    | LassySmall UPOS | UAS   | LAS   |
-Verspoor   |  95.62       | 86.34 | 82.37  | 95.21           | 86.46 | 82.14 |
-
-
-
 [Deep Biaffine Attention for Neural Dependency Parsing](https://arxiv.org/abs/1611.01734)
 Timothy Dozat, Christopher D. Manning
 

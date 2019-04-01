@@ -3,10 +3,12 @@
 | Tool    | Year | Type               | UPOS  | XPOS  | UFeats | Lemmas | UAS   | LAS   |
 | ---     | ---:                      | ----  | ----- | ------ | ------ | ----- | ----- |
 | Alpino  | 2011 | Rulebased          | 96.71 | 95.87 | 97.24  | 90.08  | 88.28 | 86.35 |
+| jPTDP   | 2018 | machine learning   | 95.62 |       |        |        | 86.36 | 82.25 |
 | UDPipe  | 2018 | machine learning   | 92.44 | 89.22 | 91.37  | 93.32  | 73.93 | 68.34 |
 | spaCy   | 2018 | machine learning   | 76.86 | 0.00  | 43.17  | 0.00   | 69.29 | 57.01 |
 | Frog    | 2007 | machine learning   | 86.77 | 0.00  | 43.27  | 97.60  | 33.71 | 12.42 |
 | Dupira  | 2012 | Rulebased          |       |       |        |        |       |       |
+
 
 Part-of-speech tagging and dependency parsing evaluated on the *UD_Dutch_Alpino_test* set.
 Scores are calculated using the UD evaluation script, and are the AlgindAcc scores.
@@ -23,6 +25,20 @@ I quickly retrained on the Lassy Small dataset with all default settings.
 
 TODO: Training on larger dataset, and with a larger model
 
+## [jPTDP](https://github.com/datquocnguyen/jPTDP.git)
+
+[An improved neural network model for joint POS tagging and dependency parsing](https://arxiv.org/abs/1807.03955)
+Dat Quoc Nguyen, Karin Verspoor
+
+Our parsing component can be viewed as an extension of the BIST graph-based dependency model (Kiperwasser and Goldberg, 2016), where we additionally incorporate the character-level vector representations of words.
+* combined POS + dependency parsing based on BiLSTM models, character embeddings (per word), and optional external word vectors.
+* word vector (static, external) + forward character lm per word + backward character lm per word
+* forward lstm + backward lstm for POS tags
+* forward lstm + backward lstm for concat layer
+* MLP + parse projection
+* code available (jPTDP) for python using Dynet (cpu + gpu support)
+
+TODO: retrain on larger dataset
 
 ## [ALPINO](http://www.let.rug.nl/vannoord/alp/Alpino/)
 

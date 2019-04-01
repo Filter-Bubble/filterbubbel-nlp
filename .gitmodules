@@ -16,6 +16,3 @@
 [submodule "tools/jPTDP"]
 	path = tools/jPTDP
 	url = https://github.com/datquocnguyen/jPTDP.git
-[submodule "tools/udpipe"]
-	path = tools/udpipe
-	url = https://github.com/ufal/udpipe.git
