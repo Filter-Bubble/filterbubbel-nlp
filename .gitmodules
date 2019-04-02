@@ -16,3 +16,6 @@
 [submodule "tools/jPTDP"]
 	path = tools/jPTDP
 	url = https://github.com/datquocnguyen/jPTDP.git
+[submodule "tools/tools"]
+	path = tools/tools
+	url = https://github.com/UniversalDependencies/tools.git
