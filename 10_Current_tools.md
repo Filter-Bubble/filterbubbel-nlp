@@ -3,11 +3,13 @@
 | Tool    | Year | Type               | UPOS  | XPOS  | UFeats | Lemmas | UAS   | LAS   |
 |---------|-----:|--------------------|-------|-------|--------|--------|-------|-------|
 | Alpino  | 2011 | Rulebased          | 96.71 | 95.87 | 97.24  | 90.08  | 88.28 | 86.35 |
+| StanfordNLP | 2018| machine learning| 96.17 | 94.32 | 96.00  | 96.30  | 90.10 | 86.93 |
 | jPTDP   | 2018 | machine learning   | 95.62 |       |        |        | 86.36 | 82.25 |
 | UDPipe  | 2018 | machine learning   | 92.44 | 89.22 | 91.37  | 93.32  | 73.93 | 68.34 |
 | spaCy   | 2018 | machine learning   | 76.86 | 0.00  | 43.17  | 0.00   | 69.29 | 57.01 |
-| Frog    | 2007 | machine learning   | 86.77 | 0.00  | 43.27  | 97.60  | 33.71 | 12.42 |
+| Frog\*  | 2007 | machine learning   | 86.77 | 0.00  | 43.27  | 97.60  | 33.71 | 12.42 |
 | Dupira  | 2012 | Rulebased          |       |       |        |        |       |       |
+
 
 
 Part-of-speech tagging and dependency parsing evaluated on the *UD_Dutch_Alpino_test* set.
@@ -56,7 +58,8 @@ TODO: convert / map dupira's parse to the conllu format
 ## [Frog](https://languagemachines.github.io/frog/)
 
 Frog is an integration of memory-based natural language processing (NLP) modules developed for Dutch.
-There are some issues with output conversion (ie. in proper connlu with the same tagset, no multi word units), so the scores a a lower bound.
+
+Note: There are some issues with output conversion (ie. in proper connlu with the same tagset, no multi word units), so the scores are a lower bound.
 
 
 ## [spaCy](https://spacu.io)
@@ -72,7 +75,18 @@ $ python -m spacy download nl_core_news_sm
 
 Assuming Dutch and English are "just as hard", and the only difference is due to amount of labelled data, we can expect some improvements.
 
-TODO: retrain on bigger dataset
+For a general description of the alogrithms in spacy, [see this blog post](https://explosion.ai/blog/how-spacy-works).
+An update for spacy 2.1 [is in another blog post](https://explosion.ai/blog/spacy-v2-1).
+
+TODO:
+* import word vectors (glove?)
+* retrain on bigger dataset
+
+## [StanfordNLP](https://stanfordnlp.github.io/stanfordnlp/index.html)
+
+StanfordNLP is a Python natural language analysis package. It contains tools, which can be used in a pipeline, to convert a string containing human language text into lists of sentences and words, to generate base forms of those words, their parts of speech and morphological features, and to give a syntactic structure dependency parse, which is designed to be parallel among more than 70 languages, using the Universal Dependencies formalism. In addition, it is able to call the CoreNLP Java package and inherits additonal functionality from there, such as constituency parsing, coreference resolution, and linguistic pattern matching.
+
+This package is built with highly accurate neural network components that enable efficient training and evaluation with your own annotated data. The modules are built on top of PyTorch. You will get much faster performance if you run this system on a GPU-enabled machine. This package is a combination of software based on the Stanford entry in the CoNLL 2018 Shared Task on Universal Dependency Parsing, and the group’s official Python interface to the Java Stanford CoreNLP software. The CoNLL UD system is partly a cleaned up version of code used in the shared task and partly an approximate rewrite in PyTorch of the original Tensorflow version of the tagger and parser.
 
 # Out of scope
 
