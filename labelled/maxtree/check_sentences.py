@@ -59,7 +59,6 @@ def patch_sentence(sentence):
                 b = prev_b + 1
 
             token[0] = "{}.{}".format(a, b)
-            print(token, file=sys.stderr)
             prev_a = a
             prev_b = b
         else:
@@ -110,6 +109,8 @@ def check_sentence(sentence):
 
         # there can be only one root
         if token[7] == 'root':
+            if head != 0:
+                return "root should have head = 0, not {}".format(head)
             if not found_root:
                 found_root = True
             else:
