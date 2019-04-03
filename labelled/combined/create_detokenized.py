@@ -1,5 +1,14 @@
 #!/usr/bin/env python
 """
+Create detokenized text from a conllu file
+
+Concattenate all token FORMS with optional ' ', depending on SpaceAfter=no in the MISC column.
+Prefix each sentence with their sentence ID:
+    sent_id|Detokenized sentence.
+
+Read from stdin
+
+Write to stdout
 """
 
 import re
