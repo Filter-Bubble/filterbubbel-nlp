@@ -5,11 +5,10 @@
 | Alpino  | 2011 | Rulebased          | 96.71 | 95.87 | 97.24  | 90.08  | 88.28 | 86.35 |
 | StanfordNLP | 2018| machine learning| 96.17 | 94.32 | 96.00  | 96.30  | 90.10 | 86.93 |
 | jPTDP   | 2018 | machine learning   | 95.62 |       |        |        | 86.36 | 82.25 |
-| UDPipe  | 2018 | machine learning   | 92.44 | 89.22 | 91.37  | 93.32  | 73.93 | 68.34 |
+| UDPipe  | 2018 | machine learning   | 94.36 | 91.59 | 93.66  | 95.49  | 82.38 | 78.29 |
 | spaCy   | 2018 | machine learning   | 76.86 | 0.00  | 43.17  | 0.00   | 69.29 | 57.01 |
 | Frog\*  | 2007 | machine learning   | 86.77 | 0.00  | 43.27  | 97.60  | 33.71 | 12.42 |
 | Dupira  | 2012 | Rulebased          |       |       |        |        |       |       |
-
 
 
 Part-of-speech tagging and dependency parsing evaluated on the *UD_Dutch_Alpino_test* set.
@@ -23,9 +22,11 @@ UDPipe is a free software distributed under the Mozilla Public License 2.0 and t
 
 Copyright 2017 by Institute of Formal and Applied Linguistics, Faculty of Mathematics and Physics, Charles University, Czech Republic.
 
+The numbers in the table above are based on the pretrained model.
 I quickly retrained on the Lassy Small dataset with all default settings.
+That resulted in a model that is a few points worse than the pretrained model, most notably for LAS/UAS.
 
-TODO: Training on larger dataset, and with a larger model
+TODO: Training on larger dataset, and with proper settings
 
 ## [jPTDP](https://github.com/datquocnguyen/jPTDP.git)
 
@@ -40,6 +41,7 @@ Our parsing component can be viewed as an extension of the BIST graph-based depe
 * MLP + parse projection
 * code available (jPTDP) for python using Dynet (cpu + gpu support)
 
+The numbers in the table above are based on the pretrained model.
 TODO: retrain on larger dataset
 
 ## [ALPINO](http://www.let.rug.nl/vannoord/alp/Alpino/)
