@@ -19,6 +19,3 @@
 [submodule "tools/tools"]
 	path = tools/tools
 	url = https://github.com/UniversalDependencies/tools.git
-[submodule "tools/dutchembeddings"]
-	path = tools/dutchembeddings
-	url = https://github.com/clips/dutchembeddings
