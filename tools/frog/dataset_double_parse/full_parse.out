@@ -1,0 +1,67 @@
+cat dataset_tok_input_tst.txt | frog -n dataset_tok_input_tst.txt > full_parse 
+frog-:tokenisation took:  9 seconds, 763 milliseconds and 148 microseconds
+frog-:CGN tagging took:   11 seconds, 569 milliseconds and 645 microseconds
+frog-:IOB chunking took:  17 seconds, 357 milliseconds and 217 microseconds
+frog-:NER took:           32 seconds, 425 milliseconds and 503 microseconds
+frog-:MBMA took:          12 seconds, 681 milliseconds and 200 microseconds
+frog-:Mblem took:         5 seconds, 788 milliseconds and 117 microseconds
+frog-:MWU resolving took: 1 seconds, 41 milliseconds and 240 microseconds
+frog-:Parsing (prepare) took: 0 seconds, 605 milliseconds and 634 microseconds
+frog-:Parsing (pairs)   took: 54 seconds, 908 milliseconds and 427 microseconds
+frog-:Parsing (rels)    took: 4 seconds, 30 milliseconds and 898 microseconds
+frog-:Parsing (dir)     took: 5 seconds, 349 milliseconds and 978 microseconds
+frog-:Parsing (csi)     took: 75 seconds, 261 milliseconds and 498 microseconds
+frog-:Parsing (total)   took: 141 seconds, 447 milliseconds and 488 microseconds
+frog-:Frogging in total took: 214 seconds, 473 milliseconds and 685 microseconds
+frog-:Sun Apr  7 08:07:16 2019 Frog finished
+frog-tagger-tagger-mbt-:classify total took: 3 seconds, 787 milliseconds and 724 microseconds
+frog-tagger-tagger-mbt-:classify known took: 2 seconds, 554 milliseconds and 849 microseconds
+frog-tagger-tagger-mbt-:classify unknown took: 1 seconds, 221 milliseconds and 876 microseconds
+frog-IOB-tagger-mbt-:classify total took: 6 seconds, 770 milliseconds and 327 microseconds
+frog-IOB-tagger-mbt-:classify known took: 3 seconds, 877 milliseconds and 833 microseconds
+frog-IOB-tagger-mbt-:classify unknown took: 2 seconds, 879 milliseconds and 162 microseconds
+frog-NER-tagger-mbt-:classify total took: 22 seconds, 575 milliseconds and 91 microseconds
+frog-NER-tagger-mbt-:classify known took: 9 seconds, 133 milliseconds and 30 microseconds
+frog-NER-tagger-mbt-:classify unknown took: 13 seconds, 430 milliseconds and 607 microseconds
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Output when (incorectly) runnin frog on "sent_id|Sentence..":
+(ie. with garabage tokens attached to the front of each sentence)
+
+
+frog-:tokenisation took:  16 seconds, 437 milliseconds and 403 microseconds
+frog-:CGN tagging took:   46 seconds, 358 milliseconds and 308 microseconds
+frog-:IOB chunking took:  83 seconds, 503 milliseconds and 427 microseconds
+frog-:NER took:           386 seconds, 700 milliseconds and 862 microseconds
+frog-:MBMA took:          16 seconds, 90 milliseconds and 188 microseconds
+frog-:Mblem took:         8 seconds, 22 milliseconds and 642 microseconds
+frog-:MWU resolving took: 1 seconds, 398 milliseconds and 108 microseconds
+frog-:Parsing (prepare) took: 0 seconds, 930 milliseconds and 971 microseconds
+frog-:Parsing (pairs)   took: 112 seconds, 822 milliseconds and 72 microseconds
+frog-:Parsing (rels)    took: 5 seconds, 951 milliseconds and 460 microseconds
+frog-:Parsing (dir)     took: 7 seconds, 854 milliseconds and 61 microseconds
+frog-:Parsing (csi)     took: 169 seconds, 61 milliseconds and 800 microseconds
+frog-:Parsing (total)   took: 298 seconds, 591 milliseconds and 525 microseconds
+frog-:Frogging in total took: 544 seconds, 855 milliseconds and 794 microseconds
+frog-:Sat Apr  6 18:59:19 2019 Frog finished
+frog-tagger-tagger-mbt-:classify total took: 35 seconds, 440 milliseconds and 11 microseconds
+frog-tagger-tagger-mbt-:classify known took: 3 seconds, 60 milliseconds and 373 microseconds
+frog-tagger-tagger-mbt-:classify unknown took: 32 seconds, 361 milliseconds and 582 microseconds
+frog-IOB-tagger-mbt-:classify total took: 70 seconds, 273 milliseconds and 892 microseconds
+frog-IOB-tagger-mbt-:classify known took: 5 seconds, 803 milliseconds and 920 microseconds
+frog-IOB-tagger-mbt-:classify unknown took: 64 seconds, 445 milliseconds and 648 microseconds
+frog-NER-tagger-mbt-:classify total took: 373 seconds, 37 milliseconds and 940 microseconds
+frog-NER-tagger-mbt-:classify known took: 37 seconds, 881 milliseconds and 646 microseconds
+frog-NER-tagger-mbt-:classify unknown took: 335 seconds, 131 milliseconds and 846 microseconds

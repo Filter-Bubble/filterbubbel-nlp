@@ -26,8 +26,13 @@ tags used for the actual remapping. At the moment, the same as the original
 NOTES:
 Frog does not do tokenization the same way alpino (and UD treebanks) do.
 Turning off tokenization, and use text tokenized by alpino does not improve (much).
-Turning off the mwu option (multi word detection) should help, but crashes frog.
-Un-doing the mulitword detection fixes the UPOS scores
+Turning off the mwu option (multi word detection) should help, but crashes frog. Frog needs the mwu for parsing
+Un-doing the multiword detection and using gold tokenizer fixes the UPOS scores
+
+working solution:
+do a minimal parse on the gold tokenized data to get tokens, upos, xpos
+do a full parse to get dependencies
+merge the two parses
 
 ## DEPREL
 

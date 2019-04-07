@@ -1,0 +1,51 @@
+
+
+cat dataset_tok_input_tst.txt | frog --skip=mt -n dataset_tok_input_tst.txt > bare_parse
+frog-:tokenisation took:  3 seconds, 18 milliseconds and 621 microseconds
+frog-:CGN tagging took:   10 seconds, 522 milliseconds and 393 microseconds
+frog-:IOB chunking took:  15 seconds, 460 milliseconds and 117 microseconds
+frog-:NER took:           30 seconds, 8 milliseconds and 844 microseconds
+frog-:MBMA took:          12 seconds, 463 milliseconds and 904 microseconds
+frog-:Mblem took:         5 seconds, 734 milliseconds and 215 microseconds
+frog-:Frogging in total took: 94 seconds, 65 milliseconds and 398 microseconds
+frog-:Sun Apr  7 08:02:07 2019 Frog finished
+frog-tagger-tagger-mbt-:classify total took: 3 seconds, 116 milliseconds and 87 microseconds
+frog-tagger-tagger-mbt-:classify known took: 2 seconds, 476 milliseconds and 528 microseconds
+frog-tagger-tagger-mbt-:classify unknown took: 0 seconds, 629 milliseconds and 500 microseconds
+frog-IOB-tagger-mbt-:classify total took: 6 seconds, 61 milliseconds and 516 microseconds
+frog-IOB-tagger-mbt-:classify known took: 3 seconds, 615 milliseconds and 605 microseconds
+frog-IOB-tagger-mbt-:classify unknown took: 2 seconds, 436 milliseconds and 0 microseconds
+frog-NER-tagger-mbt-:classify total took: 21 seconds, 432 milliseconds and 221 microseconds
+frog-NER-tagger-mbt-:classify known took: 8 seconds, 636 milliseconds and 968 microseconds
+frog-NER-tagger-mbt-:classify unknown took: 12 seconds, 784 milliseconds and 409 microseconds
+
+
+Points of attention:
+senctence 3300 has an "'e" as in "me'e'r'", see what happened to the sentence (dropped and shifting all sentences up), or just a bad parse?
+
+
+
+
+Output when (incorectly) runnin frog on "sent_id|Sentence..", and with the tokenizer enabled (should be off)
+(ie. with garabage tokens attached to the front of each sentence)
+
+frog-:tokenisation took:  16 seconds, 423 milliseconds and 818 microseconds
+frog-:CGN tagging took:   45 seconds, 492 milliseconds and 807 microseconds
+frog-:IOB chunking took:  69 seconds, 855 milliseconds and 508 microseconds
+frog-:NER took:           344 seconds, 726 milliseconds and 642 microseconds
+frog-:MBMA took:          15 seconds, 981 milliseconds and 703 microseconds
+frog-:Mblem took:         8 seconds, 153 milliseconds and 640 microseconds
+frog-:Frogging in total took: 431 seconds, 117 milliseconds and 758 microseconds
+frog-:Sat Apr  6 19:08:00 2019 Frog finished
+frog-tagger-tagger-mbt-:classify total took: 34 seconds, 875 milliseconds and 184 microseconds
+frog-tagger-tagger-mbt-:classify known took: 3 seconds, 3 milliseconds and 608 microseconds
+frog-tagger-tagger-mbt-:classify unknown took: 31 seconds, 852 milliseconds and 185 microseconds
+frog-IOB-tagger-mbt-:classify total took: 60 seconds, 170 milliseconds and 756 microseconds
+frog-IOB-tagger-mbt-:classify known took: 4 seconds, 983 milliseconds and 295 microseconds
+frog-IOB-tagger-mbt-:classify unknown took: 55 seconds, 170 milliseconds and 32 microseconds
+frog-NER-tagger-mbt-:classify total took: 336 seconds, 360 milliseconds and 636 microseconds
+frog-NER-tagger-mbt-:classify known took: 35 seconds, 960 milliseconds and 496 microseconds
+frog-NER-tagger-mbt-:classify unknown took: 300 seconds, 377 milliseconds and 748 microseconds
+
+
+

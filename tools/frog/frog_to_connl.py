@@ -1,12 +1,156 @@
 #!/usr/bin/env python3
-
 import sys
 import warnings
-import frog
+
+# Frog output fields:
+# 0 Token number (resets every sentence)
+# 1 Token
+# 2 Lemma (according to MBLEM)
+# 3 Morphological segmentation (according to MBMA)
+# 4 PoS tag (CGN tagset; according to MBT)
+# 5 Confidence in the POS tag, a number between 0 and 1, representing the probability mass assigned to the best guess tag in the tag distribution
+# 6 Named entity type, identifying person (PER), organization (ORG), location (LOC), product (PRO), event (EVE), and miscellaneous (MISC), using a BIO (or IOB2) encoding
+# 7 Base (non-embedded) phrase chunk in BIO encoding
+# 8 Token number of head word in dependency graph (according to CSI-DP)
+# 9 Type of dependency relation with head word
+INDEX, TEXT, LEMMA, MORPH, POS, CONF, NER, PHRASE, DEPINDEX, DEP = range(10)
 
 class InputError(Exception):
     def __init__(self, message):
         self.message = message
+
+# bare                                  full
+# no ner, no mwu, no dep, no depindex # with ner, mwu, but also dep, depindex
+# 1    Wat              wat           #  1    Wat             wat
+# 2    was              zijn          #  2    was             zijn
+# 3    het              het           #  3    het             het
+# 4    succesvolste     successvol    #  4    succesvolste    succesvol
+# 5    jaar             jaar          #  5    jaar            jaar
+# 6    voor             voor          #  6    voor            voor
+# 7    The              The           #  7    The_Beatles     The_Beatles
+# 8    Beatles          Beatles       #  8    ,               ,
+# 9    ,                ,             #  9    gemeten         meten
+# 10   gemeten          meten         # 10    in              in
+# 11   in               in            # 11    aantal          aantal
+# 12   aantal           aantal        # 12    verkochte       verkopen
+# 13   verkochte        verkopen      # 13    platen          plaat
+# 14   platen           plaat         # 14    ?               ?
+# 15   ?                ?    
+def align_sentence(bare_sentence, full_sentence):
+    # Assumption: some tokens have been merged with an '_'
+    #  - len(full_sentence) < len(bare_sentence)
+    #  - text and ordering have not been changed,
+    #    '_'.join() for full and bare sentences match
+    
+    # We will look up the head by:
+    # (1) matching a bare token (left), to a fully annotated token (right).
+    # (2) Then find the full token that is the right head via the token[DEPINDEX]
+    # (3) Then match it back to abare token (left)
+
+    # build mapping bare <-> full
+    b_to_f = {} # index of bare token to index of full token
+    f_to_b = {} # string of full token INDEX to string of bare token INDEX
+
+    ibare = 0
+    ifull = 0
+    while True:
+        if ibare == len(bare_sentence):
+            break
+        if ifull == len(full_sentence):
+            print ("Error...")
+            return False
+            break
+
+        bare = bare_sentence[ibare]
+        full = full_sentence[ifull]
+
+        # Create links between the two tokens
+        b_to_f[ibare] = ifull
+        f_to_b[full[INDEX]] = bare[INDEX]
+      
+        # Move to the next tokens
+        if bare[TEXT] == full[TEXT]:
+            # TEXT matches, as would be the case for tokens 1-6 above
+            # go to the next full token
+            ibare += 1
+            ifull += 1
+        elif bare[TEXT] in full[TEXT].split('_'):
+            # the TEXT has been merged into an MWU or NE, 
+            # as tokens 7 and 8 both map to 7
+            # dont go to the next full token
+            ibare += 1
+        else:
+            # the TEXT has not been merged in, so should match
+            # with the next full token
+            ifull += 1
+
+    for ibare, bare in enumerate(bare_sentence):
+        # find the matching full token
+        full = full_sentence[b_to_f[ibare]]
+
+        # append its DEPINDEX to the bare token index 9,
+        # but be careful with root as that points outside
+        # of the sentence
+        fullhead = full[DEPINDEX]
+        if int(fullhead) == 0:
+            bare.append('0')
+        else:
+            bare.append(f_to_b[fullhead])
+
+        # append the relation as index 10
+        bare.append(full[DEP])
+
+    return True
+
+def token_to_conllu(token):
+    # convert frogs pos to UPOS and FEATS
+    try:
+        upos, feats = cgn_to_ud[token[POS]]
+    except KeyError:
+        warnings.warn('Unknown frog pos: {}'.format(token[POS]))
+        upos, feats = '_', '_'
+
+    conllu = []
+
+    # 1 id, starting at 1
+    conllu.append('{}'.format(token[INDEX]))
+
+    # 2 form
+    conllu.append('{}'.format(token[TEXT]))
+
+    # 3 lemma
+    conllu.append('{}'.format(token[LEMMA]))
+
+    # 4 upos
+    conllu.append(upos)
+
+    # 5 xpos
+    conllu.append('_')
+
+    # 6 feats
+    conllu.append(feats)
+
+    # 7 head
+    if len(token) > DEPINDEX:
+        conllu.append('{}'.format(token[DEPINDEX]))
+    else:
+        conllu.append('_')
+
+    # 8 deprel
+    if len(token) > DEP:
+        conllu.append(token[DEP])
+    else:
+        conllu.append('_')
+
+    # 9 deps
+    conllu.append('_')
+
+    # 10 misc
+    conllu.append('_')
+
+    return '\t'.join(conllu)
+
+
 
 # Initialize connl output
 # Conversion from the tagset of frog to one of the Universal Dependencies
@@ -19,147 +163,54 @@ with open('cgn_to_upos.txt') as f:
         fields = line.rstrip().split('\t')
         cgn_to_ud[fields[0]] = (fields[2], fields[3])
 
-# Initialize frog
-frog = frog.Frog(frog.FrogOptions(tok=True, parser=True))
+with open('full_parse', 'r') as f:
+    full_parse_contents = f.readlines()
+    full_parse = iter(full_parse_contents)
 
-# Parse all sentences from stdin
-for idsent in sys.stdin:
-    # input as:  sentid|sentence
+with open('bare_parse', 'r') as f:
+    bare_parse_contents = f.readlines()
+    bare_parse = iter(bare_parse_contents)
 
-    # output as: # sent_id =
-    #            # text =
-    #            1 ...
-    #            2 ...
-    #            3 ...
-    pipe = idsent.find('|')
-    if pipe == -1:
-        raise InputError("Invalid input")
+f = open('total_parse', 'w')
 
-    sent_id = idsent[:pipe]
+print ("Read {} lines from bare parse, and {} lines from full parse".format(len(bare_parse_contents), len(full_parse_contents)))
 
-    sentence = idsent[pipe+1:]
-    parsed = frog.process(sentence.rstrip())
+try:
+    while True:
+        # read the sentence from the full parse
+        full_sentence = []
+        while True:
+            line = next(full_parse).rstrip()
+            if len(line) == 0:
+                break
 
-    # The frog tokenizer does some multi word unit tricks (see token 12)
-    # Truning is it off makes frog crash, so try to split mwu manually
+            # parse the token
+            token = line.split('\t')
 
-    # # sent_id = LassySmall5_WR-P-P-H-0000000105_WR-P-P-H-0000000105.p.6.s.1
-    # # text = De afgelopen week twijfelde ze nog of ze wel moest meedoen aan het NK .
-    # 1	De	de	DET	_	Case=Acc,Nom|Definite=Def|Gender=Com|Number=Plur|PronType=Art	3	det	_	_
-    # 2	afgelopen	aflopen	VERB	_	Aspect=Perf|Position=Prenom|Tense=Past|VerbForm=Part	3	mod	_	_
-    # 3	week	week	NOUN	_	Case=Acc,Nom|Degree=Pos|Gender=Com|Number=Sing	4	mod	_	_
-    # 4	twijfelde	twijfelen	VERB	_	Mood=Ind|Number=Sing|Tense=Past|VerbForm=Fin	0	ROOT	_	_
-    # 5	ze	ze	PRON	_	Case=Acc,Nom|Gender=Fem|Number=Sing|Person=3|PronType=Prs|Variant=Short	4	su	_	_
-    # 6	nog	nog	ADV	_	_	4	mod	_	_
-    # 7	of	of	SCONJ	_	_	4	vc	_	_
-    # 8	ze	ze	PRON	_	Case=Acc,Nom|Gender=Fem|Number=Sing|Person=3|PronType=Prs|Variant=Short	10	su	_	_
-    # 9	wel	wel	ADV	_	_	10	None	_	_
-    # 10	moest	moeten	VERB	_	Mood=Ind|Number=Sing|Tense=Past|VerbForm=Fin	7	body	_	_
-    # 11	meedoen	meedoen	VERB	_	Position=Free|VerbForm=Inf	10	vc	_	_
-    # 12	aan_het	aan_het	_	_	_	11	vc	_	_
-    # 13	NK	NK	_	_	_	12	body	_	_
-    # 14	.	.	PUNCT	_	_	13	punct	_	_
+            # append token to current sentence
+            full_sentence.append(token)
 
+        # read the sentence from the bare parse
+        bare_sentence = []
+        while True:
+            line = next(bare_parse).rstrip()
+            if len(line) == 0:
+                break
 
-    parsed_nomwu = []
-    for i in range(len(parsed)):
-        token = parsed[i]
+            # parse the token
+            token = line.split('\t')
 
-        # is it a mwu?
-        if token['lemma'].find('_') != -1:
-            subpos = token['pos'].split('_')
-            subtext = token['text'].split('_')
-            sublemma = token['lemma'].split('_')
-            subpos = token['pos'].split('_')
+            # append token to current sentence
+            bare_sentence.append(token)
 
-            # we add len(submlemma) tokens, but remove the original one
-            shift = len(sublemma) - 1
+        # align them
+        align_sentence(bare_sentence, full_sentence)
 
-            # adjust the heads on the parsed tokens
-            for j in range(len(parsed_nomwu)):
-                depindex = int(parsed_nomwu[j]['depindex'])
-                if depindex >= i:
-                    parsed_nomwu[j]['depindex'] = depindex + shift
+        # write sentence to file
+        for token in bare_sentence:
+            conllu = token_to_conllu(token)
+            print (conllu, file=f)
+        print ("\n", file=f)
 
-            # adjust the heads and indexes on the original tokens
-            current_index = int(token['index'])
-            for j in range(len(parsed)):
-                depindex = int(parsed[j]['depindex'])
-                if depindex >= current_index:
-                    parsed[j]['depindex'] = depindex + shift
-
-                index = int(parsed[j]['index'])
-                if index > current_index:
-                    parsed[j]['index'] = index + shift
-
-            # split the mwu token in single tokens
-            for j in range(len(sublemma)):
-                subtoken = {}
-                subtoken['index'] = int(token['index']) + j
-                subtoken['text'] = subtext[j]
-                subtoken['lemma'] = sublemma[j]
-                subtoken['pos'] = subpos[j]
-                # take the head of the token as the head of the subtoken
-                # TODO: make a better guess?
-                subtoken['depindex'] = token['depindex']
-                subtoken['dep'] = token['dep']
-                parsed_nomwu.append(subtoken)
-        else:
-            parsed_nomwu.append(token)
-
-    print ('# sent_id =', sent_id)
-    print ('# text =', sentence.rstrip())
-    for token in parsed_nomwu:
-        # Frog's python API returns an array of:
-        # 'chunker': 'B-NP'
-        # 'morph': '[dit]'
-        # 'index': '1'
-        # 'text': 'Dit'
-        # 'depindex': '2'
-        # 'ner': 'O'
-        # 'posprob': 0.777085
-        # 'lemma': 'dit'
-        # 'dep': 'su'
-        # 'pos': 'VNW(aanw,pron,stan,vol,3o,ev)
-
-        # convert frogs pos to UPOS and FEATS
-        try:
-            upos, feats = cgn_to_ud[token['pos']]
-        except KeyError:
-            warnings.warn('Unknown frog pos: {}'.format(token['pos']))
-            upos, feats = '_', '_'
-
-        line = []
-
-        # 1 id, starting at 1
-        line.append('{}'.format(token['index']))
-
-        # 2 form
-        line.append('{}'.format(token['text']))
-
-        # 3 lemma
-        line.append('{}'.format(token['lemma']))
-
-        # 4 upos
-        line.append(upos)
-
-        # 5 xpos
-        line.append('_')
-
-        # 6 feats
-        line.append(feats)
-
-        # 7 head
-        line.append('{}'.format(token['depindex']))
-
-        # 8 deprel
-        line.append(token['dep'])
-
-        # 9 deps
-        line.append('_')
-
-        # 10 misc
-        line.append('_')
-
-        print ('\t'.join(line))
-    print ()
+except StopIteration:
+    pass
