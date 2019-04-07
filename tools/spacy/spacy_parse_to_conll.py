@@ -6,7 +6,7 @@ class InputError(Exception):
     def __init__(self, message):
         self.message = message
 
-nlp = spacy.load('nl_core_news_sm')
+nlp = spacy.load('nl_core_news_sm', disable=["tokenizer"])
 
 for idsent in sys.stdin:
     # input as:  sentid|sentence
