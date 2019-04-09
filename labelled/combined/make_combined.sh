@@ -8,21 +8,13 @@ python3  ./check_sentences.py > make_combined.out 2> make_combined.err
 
 
 # replace "&amp;" with a regular ampersand
+# truncate sentence id
 for f in dataset_test.conllu dataset_train.conllu dataset_dev.conllu; do
   mv "$f" fix
-  cat fix | sed 's/&amp;/\&/g' > "$f"
+  cat fix | sed 's/&amp;/\&/g' | sed 's/^# sent_id = .*\/\([^|]\)/# sent_id = \1/' > "$f" 
 done
 
-
-# To improve tokenization, we use the de-tokenization from feature from udpipe
-# We supply udpipe with properly detokenized text, and it adds the relevant 'SpaceAfter' and 'SpaceBefore' tags.
-# For this we used the first 5000 lines of our wikipedia corpus.
-
-udpipe --detokenize detokenizid_wikinl.txt --outfile dataset_detok_train.conllu dataset_train.conllu
-udpipe --detokenize detokenizid_wikinl.txt --outfile dataset_detok_test.conllu  dataset_test.conllu
-udpipe --detokenize detokenizid_wikinl.txt --outfile dataset_detok_dev.conllu   dataset_dev.conllu
-
-# finally, create detokenized input
-cat  dataset_detok_test.conllu  | ./create_detokenized.py > dataset_detok_input_tst.txt
-cat  dataset_detok_train.conllu | ./create_detokenized.py > dataset_detok_input_train.txt
-cat  dataset_detok_dev.conllu   | ./create_detokenized.py > dataset_detok_input_dev.txt
+# create tokenized input
+cat  dataset_test.conllu  | ./create_tokenized.py > dataset_tok_input_tst.txt
+cat  dataset_train.conllu | ./create_tokenized.py > dataset_tok_input_train.txt
+cat  dataset_dev.conllu   | ./create_tokenized.py > dataset_tok_input_dev.txt

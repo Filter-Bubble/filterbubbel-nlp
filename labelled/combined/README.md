@@ -7,19 +7,16 @@ See also the scripts in this directory.
 
 To make comparison with the Shared Tasks easier, the test dataset of Alpino, nl\_alpino-ud-test.conllu, has been excluded, and can serve as an extra (independent) set.
 
+I could not find the untokenized input text, so all files contain gold tokenization.
+
 ## Description of files
 
 Validated, conllu files, build using a 80/10/10 split:
-*dataset_detok_train.conllu*
-*dataset_detok_dev.conllu*
-*dataset_detok_test.conllu*
-
-The detokenized sentences of these sets:
-*dataset_detok_input_dev.txt*
-*dataset_detok_input_train.txt*
-*dataset_detok_input_tst.txt*
-
-The validated conllu files without detokenization.
+*dataset_train.conllu*
 *dataset_dev.conllu*
 *dataset_test.conllu*
-*dataset_train.conllu*
+
+The tokenized sentences of these sets:
+*dataset_tok_input_dev.txt*
+*dataset_tok_input_train.txt*
+*dataset_tok_input_tst.txt*

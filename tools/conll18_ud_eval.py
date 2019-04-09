@@ -196,7 +196,11 @@ def load_conllu(file):
                 if word.parent == "remapping":
                     print ("There is a cycle in a sentence", index)
                 if word.parent is None:
-                    head = int(word.columns[HEAD])
+                    try:
+                        head = int(word.columns[HEAD])
+                    except:
+                        print ("Cannot parse HEAD '{}'".format(_encode(columns[HEAD])))
+                        head = 1
                     if head < 0 or head > len(ud.words) - sentence_start:
                         print ("HEAD '{}' points outside of the sentence".format(_encode(word.columns[HEAD])))
                         if head < 0:
@@ -273,7 +277,8 @@ def load_conllu(file):
             try:
                 head_id = int(columns[HEAD])
             except:
-                raise UDError("Cannot parse HEAD '{}'".format(_encode(columns[HEAD])))
+                print ("Cannot parse HEAD '{}'".format(_encode(columns[HEAD])))
+                head_id = 1
             if head_id < 0:
                 raise UDError("HEAD cannot be negative")
 
@@ -311,6 +316,27 @@ def evaluate(gold_ud, system_ud):
             self.matched_words_map[system_word] = gold_word
 
     def spans_score(gold_spans, system_spans):
+        print ("Gold: ")
+        for i in range(len(gold_spans)):
+            t = u"".join(gold_ud.characters[gold_spans[i].start : gold_spans[i].end])
+            t = unicodedata.normalize('NFKC', t)
+            try:
+                print ("{}-{} {:20}".format(gold_spans[i].start, gold_spans[i].end, t))
+            except:
+                pass
+        print()
+        print ("System: ")
+        for i in range(len(system_spans)):
+            t = u"".join(system_ud.characters[system_spans[i].start : system_spans[i].end])
+            t = unicodedata.normalize('NFKC', t)
+            try:
+                print ("{}-{} {:20}".format(system_spans[i].start, system_spans[i].end, t))
+            except:
+                pass
+
+        print()
+        print()
+
         correct, gi, si = 0, 0, 0
         while gi < len(gold_spans) and si < len(system_spans):
             if system_spans[si].start < gold_spans[gi].start:

@@ -6,7 +6,19 @@ class InputError(Exception):
     def __init__(self, message):
         self.message = message
 
-nlp = stanfordnlp.Pipeline(lang="nl")
+config = {
+        'tokenize_pretokenized': True,
+        'processors': 'tokenize,pos,lemma,depparse', # mwt
+        'lang': 'nl',
+        'tokenize_model_path': '../../resources/stanfordnlp_resources/nl_alpino_models/nl_alpino_tokenizer.pt',
+        'pos_model_path': '../../resources/stanfordnlp_resources/nl_alpino_models/nl_alpino_tagger.pt',
+        'pos_pretrain_path': '../../resources/stanfordnlp_resources/nl_alpino_models/nl_alpino.pretrain.pt',
+        'lemma_model_path': '../../resources/stanfordnlp_resources/nl_alpino_models/nl_alpino_lemmatizer.pt',
+        'depparse_model_path': '../../resources/stanfordnlp_resources/nl_alpino_models/nl_alpino_parser.pt',
+        'depparse_pretrain_path': '../../resources/stanfordnlp_resources/nl_alpino_models/nl_alpino.pretrain.pt',
+        }
+
+nlp = stanfordnlp.Pipeline(**config)
 
 for idsent in sys.stdin:
     # input as:  sentid|sentence

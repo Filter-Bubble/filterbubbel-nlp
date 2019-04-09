@@ -13,4 +13,7 @@ Install Dutch language support using built in command:
 >>> stanfordnlp.download(lang='nl')
 ```
 
+# Retraining
+
+See the [official manual](https://stanfordnlp.github.io/stanfordnlp/training.html) for instructions.
 

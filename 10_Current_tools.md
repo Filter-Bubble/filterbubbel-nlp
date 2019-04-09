@@ -1,18 +1,32 @@
 # Current tools
 
-| Tool    | Year | Type               | UPOS  | XPOS  | UFeats | Lemmas | UAS   | LAS   |
-|---------|-----:|--------------------|-------|-------|--------|--------|-------|-------|
-| Alpino  | 2011 | Rulebased          | 96.71 | 95.87 | 97.24  | 90.08  | 88.28 | 86.35 |
-| StanfordNLP | 2018| machine learning| 96.17 | 94.32 | 96.00  | 96.30  | 90.10 | 86.93 |
-| jPTDP   | 2018 | machine learning   | 95.62 |       |        |        | 86.36 | 82.25 |
-| UDPipe  | 2018 | machine learning   | 94.36 | 91.59 | 93.66  | 95.49  | 82.38 | 78.29 |
-| spaCy   | 2018 | machine learning   | 76.86 | 0.00  | 43.17  | 0.00   | 69.29 | 57.01 |
-| Frog\*  | 2007 | machine learning   | 86.77 | 0.00  | 43.27  | 97.60  | 33.71 | 12.42 |
-| Dupira  | 2012 | Rulebased          |       |       |        |        |       |       |
+## Part-of-speech and dependencies
+
+| Tool        | Year | Test set |  Tokens | UPOS  | XPOS  | UFeats | Lemmas | UAS   | LAS   |
+|-------------|-----:|----------|---------|-------|-------|--------|--------|-------|-------|
+| Alpino      | 2011 | Alpino   |  99.98  | 96.71 | 95.87 | 97.24  | 90.08  | 88.28 | 86.35 |
+|             |      | Combined |   gold  | 95.97 | 94.45 | 96.11  | 90.98  | 90.90 | 88.63 |
+| StanfordNLP | 2018 | Alpino   |  99.71  | 96.17 | 94.32 | 96.00  | 96.30  | 90.10 | 86.93 |
+|             |      | Combined |   gold  | 96.32 | 94.89 | 96.16  | 96.61  | 87.53 | 84.20 |
+| jPTDP       | 2018 | Alpino   |   gold  | 95.62 |       |        |        | 86.36 | 82.25 |
+|             |      | Combined |   gold  | 95.84 |       |        |        | 83.20 | 79.49 |
+| UDPipe      | 2018 | Alpino   |  99.91  | 94.36 | 91.59 | 93.66  | 95.49  | 82.38 | 78.29 |
+|             |      | Combined |   gold  | 95.05 | 92.65 | 94.36  | 96.19  | 81.07 | 76.87 |
+| spaCy       | 2018 | Alpino   |  96.84  | 76.86 |       | 43.17  | 0.00   | 69.29 | 57.01 |
+|             |      | Combined |  97.11  | 77.69 |       | 43.44  | 0.01   | 69.17 | 57.43 |
+| Frog        | 2007 | Alpino   |  98.54  | 86.77 |       | 43.27  | 97.60  | 34.57 | 12.79 |
+|             |      | Combined |   gold  | 86.56 |       | 42.52  | 97.47  | 35.12 | 12.01 |
+| Dupira      | 2012 |          |         |       |       |        |        |       |       |
 
 
-Part-of-speech tagging and dependency parsing evaluated on the *UD_Dutch_Alpino_test* set.
+Models are run using published settings and pre-trained networks.
 Scores are calculated using the UD evaluation script, and are the AlgindAcc scores.
+
+*Alpino*
+  Tokenization, part-of-speech tagging and dependency parsing evaluated on the *UD_Dutch_Alpino_test* set.
+
+*Combined*
+  Part-of-speech tagging and dependency parsing evaluated on the larger test set, created from the (full) LassySmall and Alpino sets. Gold standard pre-tokenized text was used.
 
 ## [UDPipe](http://ufal.mff.cuni.cz/udpipe)
 
@@ -21,12 +35,6 @@ UDPipe is a trainable pipeline for tokenization, tagging, lemmatization and depe
 UDPipe is a free software distributed under the Mozilla Public License 2.0 and the linguistic models are free for non-commercial use and distributed under the CC BY-NC-SA license, although for some models the original data used to create the model may impose additional licensing conditions. UDPipe is versioned using Semantic Versioning.
 
 Copyright 2017 by Institute of Formal and Applied Linguistics, Faculty of Mathematics and Physics, Charles University, Czech Republic.
-
-The numbers in the table above are based on the pretrained model.
-I quickly retrained on the Lassy Small dataset with all default settings.
-That resulted in a model that is a few points worse than the pretrained model, most notably for LAS/UAS.
-
-TODO: Training on larger dataset, and with proper settings
 
 ## [jPTDP](https://github.com/datquocnguyen/jPTDP.git)
 
@@ -41,13 +49,9 @@ Our parsing component can be viewed as an extension of the BIST graph-based depe
 * MLP + parse projection
 * code available (jPTDP) for python using Dynet (cpu + gpu support)
 
-The numbers in the table above are based on the pretrained model.
-TODO: retrain on larger dataset
-
 ## [ALPINO](http://www.let.rug.nl/vannoord/alp/Alpino/)
 
 Alpino is a dependency parser for Dutch, developed in the context of the PIONIER Project Algorithms for Linguistic Processing. The software is available under the conditions of the Gnu Lesser General Public License.
-
 
 
 ## [Dupira](https://ivdnt.org/downloads/taalmaterialen/tstc-dupira)
@@ -75,14 +79,8 @@ $ pip install spacy
 $ python -m spacy download nl_core_news_sm
 ```
 
-Assuming Dutch and English are "just as hard", and the only difference is due to amount of labelled data, we can expect some improvements.
-
 For a general description of the alogrithms in spacy, [see this blog post](https://explosion.ai/blog/how-spacy-works).
 An update for spacy 2.1 [is in another blog post](https://explosion.ai/blog/spacy-v2-1).
-
-TODO:
-* import word vectors (glove?)
-* retrain on bigger dataset
 
 ## [StanfordNLP](https://stanfordnlp.github.io/stanfordnlp/index.html)
 
@@ -102,12 +100,10 @@ The tool is superceded by RNNTagger, from the same author.
 
 The tool does only POS, no dependency parse.
 
-
 ## [Natural Language Toolkit](https://www.nltk.org/)
 
 Python based toolkit with lots of datasets included (one of which is the Alpino Dutch treebank).
 [A tagger for Dutch build in NLTK](https://github.com/evanmiltenburg/Dutch-tagger) is on github, but it includes a disclaimer not to use it in production.
-
 
 ## [Tadpole]()
 

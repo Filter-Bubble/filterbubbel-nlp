@@ -216,7 +216,7 @@ name_train = '{}_train.conllu'.format("dataset")
 print ('Parsed {} sentences and {} tokens.'.format(sentence_counter, line_counter))
 print ('Correct sentences: {}'.format(correct_counter))
 print ('Incorrect sentences: {}'.format(issue_counter))
-print ('Sentences per train/dev/test: {}'.format(len(train_set), len(dev_set), len(test_set)))
+print ('Sentences per train/dev/test: {}/{}/{}'.format(len(train_set), len(dev_set), len(test_set)))
 print ("\n".join(issuelist), file=sys.stderr)
 
 with open(name_dev, 'w') as f:

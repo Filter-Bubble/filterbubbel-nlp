@@ -16,6 +16,7 @@ import sys
 import random
 
 SPACE_AFTER = re.compile('.*SpaceAfter=No.*', re.IGNORECASE)
+HAS_SUBTOKEN = re.compile('\d*\.\d')
 
 sentence = []
 line_counter = 0
@@ -28,12 +29,14 @@ for line in sys.stdin:
         # reconstruct the full sentence
         full_sentence = comment_sentid + "|"
         for token in sentence:
-            full_sentence += token[1]
-            if SPACE_AFTER.match(token[9]):
-                # MISC contains SpaceAfter=no
-                pass
-            else:
-                full_sentence += " "
+            # skip 'invisible' tokens with an index like '10.1'
+            if not HAS_SUBTOKEN.match(token[0]):
+                full_sentence += token[1]
+                if SPACE_AFTER.match(token[9]):
+                    # MISC contains SpaceAfter=no
+                    pass
+                else:
+                    full_sentence += " "
 
         print (full_sentence)
         
