@@ -1,26 +1,30 @@
 # Retraining
 
-| Tool        | Year | Test set |  Tokens | UPOS  | XPOS  | UFeats | Lemmas | UAS   | LAS   |
-|-------------|-----:|----------|---------|-------|-------|--------|--------|-------|-------|
-| AllenNLP    |      | Alpino   |   gold  |       |  gold | 40.37  |  0.00  | 90.78 | 88.87 |
-|             |      | Combined |   gold  |       |  gold | 40.84  |  0.01  | 93.85 | 92.03 |
-| UDPipe      |      | Alpino   |   gold  | 96.57 | 94.99 | 96.59  | 97.33  | 82.97 | 79.50 |
-|             |      | Combined |   gold  | 97.64 | 96.58 | 97.44  | 98.31  | 86.42 | 83.34 |
-| jPTDP       |      | Alpino   |   gold  |       |       |        |        |       |       |
-|             |      | Combined |   gold  |       |       |        |        |       |       |
-| StanfordNLP |      | Alpino   |   gold  |       |       |        |        |       |       |
-|             |      | Combined |   gold  |       |       |        |        |       |       |
-| Spacy       |      | Alpino   |   gold  |       |       |        |        |       |       |
-|             |      | Combined |   gold  |       |       |        |        |       |       |
+| Tool        | Test set | UPOS  | XPOS  | UFeats | Lemmas | UAS   | LAS   | CLAS  | MLAS  | BLEX  |
+|-------------|----------|-------|-------|--------|--------|-------|-------|-------|-------|-------|
+| AllenNLP    | Alpino   |       |  gold | 40.37  |        | 90.78 | 88.87 | 89.79 |       |       |
+|             | Alpino   |  gold |       | 40.37  |        | 89.91 | 88.14 | 89.02 |       |       |
+|             | Combined |       |  gold | 40.84  |  0.01  | 93.85 | 92.03 | 89.21 |       |       |
+|             | Combined |  gold |       | 40.84  |  0.01  | 94.01 | 92.12 | 89.26 |       |       |
+| Parser-v2   | Alpino   |  gold |  gold | 40.37  |        | 89.76 | 88.01 | 88.92 | 17.44 | 88.92 |
+|             | Combined |  gold |  gold | 40.84  |        | 94.47 | 92.58 | 89.75 | 18.51 | 89.75 |
+| UDPipe      | Alpino   | 96.57 | 94.99 | 96.59  | 97.33  | 82.97 | 79.50 | 76.69 | 72.10 | 73.64 |
+|             | Combined | 97.64 | 96.58 | 97.44  | 98.31  | 86.42 | 83.34 | 78.74 | 74.72 | 76.80 |
+| jPTDP       | Alpino   |       |       |        |        |       |       |       |       |       |
+|             | Combined |       |       |        |        |       |       |       |       |       |
+| StanfordNLP | Alpino   | 97.74 | 96.73 | 97.93  |        | 89.22 | 87.07 | 87.58 | 86.93 | 87.58 |
+|             | Combined | 97.83 | 97.03 | 97.94  | 96.59  | 91.74 | 88.95 | 85.15 | 81.41 | 80.36 |
+| Spacy       | Alpino   |       |       |        |        |       |       |       |       |       |
+|             | Combined |       |       |        |        |       |       |       |       |       |
+
+
+StanfordNLP:
+trained on tokenized text
+used predicted POS for DEP.
+Lemmas done using original lemmatizer trained on alpino dataset.
 
 Models retrained on the combined Lassy and Alpino treebanks.
-Where applicable, wordvectors from Fasttext on the AEM corpus.
-
-TODO:
-* spacy
-* retrain
-* stanfordnlp
-* allennlp: train on alpino only to see effect of larger treebank?
+Where applicable, wordvectors from Fasttext trained on the AEM corpus are used.
 
 # Pre-trained word vectors
 

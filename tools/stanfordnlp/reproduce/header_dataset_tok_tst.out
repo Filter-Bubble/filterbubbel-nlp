@@ -1,0 +1,24 @@
+Use device: cpu
+---
+Loading: tokenize
+With settings: 
+{'model_path': '../../resources/stanfordnlp_resources/nl_alpino_models/nl_alpino_tokenizer.pt', 'pretokenized': True, 'lang': 'nl', 'shorthand': 'nl_alpino', 'mode': 'predict'}
+---
+Loading: pos
+With settings: 
+{'model_path': '../../resources/stanfordnlp_resources/nl_alpino_models/nl_alpino_tagger.pt', 'pretrain_path': '../../resources/stanfordnlp_resources/nl_alpino_models/nl_alpino.pretrain.pt', 'lang': 'nl', 'shorthand': 'nl_alpino', 'mode': 'predict'}
+---
+Loading: lemma
+With settings: 
+{'model_path': '../../resources/stanfordnlp_resources/nl_alpino_models/nl_alpino_lemmatizer.pt', 'lang': 'nl', 'shorthand': 'nl_alpino', 'mode': 'predict'}
+Building an attentional Seq2Seq model...
+Using a Bi-LSTM encoder
+Using soft attention for LSTM.
+Finetune all embeddings.
+[Running seq2seq lemmatizer with edit classifier]
+---
+Loading: depparse
+With settings: 
+{'model_path': '../../resources/stanfordnlp_resources/nl_alpino_models/nl_alpino_parser.pt', 'pretrain_path': '../../resources/stanfordnlp_resources/nl_alpino_models/nl_alpino.pretrain.pt', 'lang': 'nl', 'shorthand': 'nl_alpino', 'mode': 'predict'}
+Done loading processors!
+---

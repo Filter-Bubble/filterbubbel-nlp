@@ -2,4 +2,9 @@ env/
 labelled/
 unlabelled/
 tools/alpino/alpino-docker/
+tools/UDPipe
+tools/frog
+*parse*.conllu
+dataset*.conllu
 .git
+*.pyc
