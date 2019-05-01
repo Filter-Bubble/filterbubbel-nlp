@@ -1,11 +1,15 @@
 # Retraining
 
+WIP: the table below is still a work in progress.
+Not all models were run equal (ie. gold/predicted POS for DEPS)
+
+
 | Tool        | Test set | UPOS  | XPOS  | UFeats | Lemmas | UAS   | LAS   | CLAS  | MLAS  | BLEX  |
 |-------------|----------|-------|-------|--------|--------|-------|-------|-------|-------|-------|
 | AllenNLP    | Alpino   |       |  gold | 40.37  |        | 90.78 | 88.87 | 89.79 |       |       |
 |             | Alpino   |  gold |       | 40.37  |        | 89.91 | 88.14 | 89.02 |       |       |
-|             | Combined |       |  gold | 40.84  |  0.01  | 93.85 | 92.03 | 89.21 |       |       |
-|             | Combined |  gold |       | 40.84  |  0.01  | 94.01 | 92.12 | 89.26 |       |       |
+|             | Combined |       |  gold | 40.84  |        | 93.85 | 92.03 | 89.21 |       |       |
+|             | Combined |  gold |       | 40.84  |        | 94.01 | 92.12 | 89.26 |       |       |
 | Parser-v2   | Alpino   |  gold |  gold | 40.37  |        | 89.76 | 88.01 | 88.92 | 17.44 | 88.92 |
 |             | Combined |  gold |  gold | 40.84  |        | 94.47 | 92.58 | 89.75 | 18.51 | 89.75 |
 | UDPipe      | Alpino   | 96.57 | 94.99 | 96.59  | 97.33  | 82.97 | 79.50 | 76.69 | 72.10 | 73.64 |
@@ -14,17 +18,26 @@
 |             | Combined |       |       |        |        |       |       |       |       |       |
 | StanfordNLP | Alpino   | 97.74 | 96.73 | 97.93  |        | 89.22 | 87.07 | 87.58 | 86.93 | 87.58 |
 |             | Combined | 97.83 | 97.03 | 97.94  | 96.59  | 91.74 | 88.95 | 85.15 | 81.41 | 80.36 |
-| Spacy       | Alpino   | 80.40 |  0.00 | 40.37  |  0.00  | 80.15 | 77.28 | 71.79 | 14.99 |  0.00 |
-|             | Combined | 81.94 |  0.00 | 40.84  |  0.01  | 83.81 | 81.17 | 72.56 | 16.45 |  0.00 |
+| Spacy       | Alpino   | 80.40 |       | 40.37  |        | 80.15 | 77.28 | 71.79 | 14.99 |  0.00 |
+|             | Combined | 81.94 |       | 40.84  |        | 83.81 | 81.17 | 72.56 | 16.45 |  0.00 |
 
-
-StanfordNLP:
-trained on tokenized text
-used predicted POS for DEP.
-Lemmas done using original lemmatizer trained on alpino dataset.
 
 Models retrained on the combined Lassy and Alpino treebanks, always using gold tokenization.
 Where applicable, wordvectors from Fasttext trained on the AEM corpus are used.
+
+StanfordNLP:
+used predicted POS for training DEP
+Lemmas done using original lemmatizer trained on alpino dataset.
+check: scores for DEP are for using gold POS
+
+UDPipe:
+used predicted POS for training DEP.
+scores for the whole pipeline
+
+Spacy:
+trained POS and DEP simulateously
+scores for the whole pipeline
+
 
 # Pre-trained word vectors
 

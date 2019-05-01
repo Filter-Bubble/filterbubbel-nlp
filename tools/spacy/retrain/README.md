@@ -1,4 +1,3 @@
-
 Following the [instructions on the Spacy website](https://spacy.io/usage/training)
 
 Create train and dev datasets in the JSON format:
@@ -21,3 +20,9 @@ Train the model
 ```
 python -m spacy train -p tagger,parser -v ../model-vectors -n 50 -G --verbose nl ../retrain-dataset ../dataset-json/dataset_train.json ../dataset-json/dataset_dev.json
 ```
+
+TODO:
+Spacy already contains a model for Dutch, that also provides the necessary files for spacy like stop words, lemmatization, and mapping of XPOS to UPOS.
+The mapping of XPOS to UPOS looks like it could have been derived from output of Frog; at least the tags seem familiar from things Frog's multi-word-unit code comes up with.
+I replaced this with a different mapping from the Alpino tagset to UD (bascially grep-sort-unique the XPOS UPOS combinations in the LassySmall dataset).
+
