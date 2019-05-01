@@ -10,8 +10,3 @@ pip install spacy
 python -m spacy download nl_core_news_sm
 ```
 
-
-https://github.com/explosion/spaCy/issues/1215
-
-
-

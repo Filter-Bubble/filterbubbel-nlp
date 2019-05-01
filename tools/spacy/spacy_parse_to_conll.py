@@ -6,7 +6,17 @@ class InputError(Exception):
     def __init__(self, message):
         self.message = message
 
-nlp = spacy.load('nl_core_news_sm', disable=["tokenizer"])
+# See here for a possible issue and fix for unwanted sentence splitting:
+# https://github.com/explosion/spaCy/issues/1032
+#def prevent_sentence_boundary_detection(doc):
+#    for token in doc:
+#        # This will entirely disable spaCy's sentence detection
+#        token.is_sent_start = False
+#    return doc
+#
+#nlp.add_pipe(prevent_sentence_segmentation, name='prevent-sbd', before='parser')
+
+nlp = spacy.load('/home/jiska/Code/ernie/tools/spacy/retrain/retrain-dataset/model-best')
 
 for idsent in sys.stdin:
     # input as:  sentid|sentence
@@ -23,11 +33,18 @@ for idsent in sys.stdin:
     sent_id = idsent[:pipe]
 
     sentence = idsent[pipe+1:]
-    parsed = nlp(sentence.rstrip())
-    json = parsed.to_json()
+    # dont run the pipeline; we do not want any tokenization
+    # doc = nlp(sentence.rstrip())
+    
+    doc = nlp.tokenizer.tokens_from_list(sentence.rstrip().split(' '))
+    nlp.tagger(doc)
+    nlp.parser(doc)
+
+    json = doc.to_json()
 
     print ('# sent_id = ', sent_id)
     print ('# text = ', json['text'])
+
     for token in json['tokens']:
         line = [] 
 
@@ -35,7 +52,7 @@ for idsent in sys.stdin:
         line.append('{}'.format(token['id'] + 1))
 
         # 2 form
-        line.append('{}'.format(parsed[int(token['id'])]))
+        line.append('{}'.format(doc[int(token['id'])]))
 
         # 3 lemma
         line.append('_')

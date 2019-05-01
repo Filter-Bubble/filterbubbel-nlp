@@ -1,9 +1,13 @@
+venv/
 env/
 labelled/
 unlabelled/
 tools/alpino/alpino-docker/
 tools/UDPipe
 tools/frog
+tools/stanfordnlp/lisa
+tools/allennlp/retrain
+tools/allennlp/retrainupos
 *parse*.conllu
 dataset*.conllu
 .git

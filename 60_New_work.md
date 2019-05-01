@@ -14,8 +14,8 @@
 |             | Combined |       |       |        |        |       |       |       |       |       |
 | StanfordNLP | Alpino   | 97.74 | 96.73 | 97.93  |        | 89.22 | 87.07 | 87.58 | 86.93 | 87.58 |
 |             | Combined | 97.83 | 97.03 | 97.94  | 96.59  | 91.74 | 88.95 | 85.15 | 81.41 | 80.36 |
-| Spacy       | Alpino   |       |       |        |        |       |       |       |       |       |
-|             | Combined |       |       |        |        |       |       |       |       |       |
+| Spacy       | Alpino   | 80.40 |  0.00 | 40.37  |  0.00  | 80.15 | 77.28 | 71.79 | 14.99 |  0.00 |
+|             | Combined | 81.94 |  0.00 | 40.84  |  0.01  | 83.81 | 81.17 | 72.56 | 16.45 |  0.00 |
 
 
 StanfordNLP:
@@ -23,7 +23,7 @@ trained on tokenized text
 used predicted POS for DEP.
 Lemmas done using original lemmatizer trained on alpino dataset.
 
-Models retrained on the combined Lassy and Alpino treebanks.
+Models retrained on the combined Lassy and Alpino treebanks, always using gold tokenization.
 Where applicable, wordvectors from Fasttext trained on the AEM corpus are used.
 
 # Pre-trained word vectors
