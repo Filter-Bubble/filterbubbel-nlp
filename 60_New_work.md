@@ -66,7 +66,8 @@ Questions seen/total: 85.85% (8624/10046)
 
 Fasttext-300 word vectors were trained on wikipedia, and use a different vocabulary.
 Questions seen/total: 97.13% (9758/10046)
-The vectors were downloaded form their website.
+The vectors were downloaded [from here](https://dl.fbaipublicfiles.com/fasttext/vectors-wiki/wiki.nl.vec); for details see [the fasttext documentation](https://fasttext.cc/docs/en/pretrained-vectors.html).
+
 
 ## Contextualilzed Word vectors
 
