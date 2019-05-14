@@ -16,19 +16,18 @@ Not all models were run equal (ie. gold/predicted POS for DEPS)
 |             | Combined | 97.64 | 96.58 | 97.44  | 98.31  | 86.42 | 83.34 | 78.74 | 74.72 | 76.80 |
 | jPTDP       | Alpino   |       |       |        |        |       |       |       |       |       |
 |             | Combined |       |       |        |        |       |       |       |       |       |
-| StanfordNLP | Alpino   | 97.74 | 96.73 | 97.93  |        | 89.22 | 87.07 | 87.58 | 86.93 | 87.58 |
-|             | Combined | 97.83 | 97.03 | 97.94  | 96.59  | 91.74 | 88.95 | 85.15 | 81.41 | 80.36 |
+| StanfordNLP | Alpino   | 97.74 | 96.73 | 97.93  |        | 87.85 | 85.18 | 85.19 | 81.56 | 85.19 |
+|             | Combined |  gold |  gold |  gold  |  gold  | 89.22 | 87.07 | 87.58 | 86.93 | 87.58 |
+|             | Combined | 97.83 | 97.03 | 97.94  |        | 91.86 | 89.07 | 85.28 | 81.50 | 85.28 |
 | Spacy       | Alpino   | 80.40 |       | 40.37  |        | 80.15 | 77.28 | 71.79 | 14.99 |  0.00 |
 |             | Combined | 81.94 |       | 40.84  |        | 83.81 | 81.17 | 72.56 | 16.45 |  0.00 |
-
 
 Models retrained on the combined Lassy and Alpino treebanks, always using gold tokenization.
 Where applicable, wordvectors from Fasttext trained on the AEM corpus are used.
 
 StanfordNLP:
 used predicted POS for training DEP
-Lemmas done using original lemmatizer trained on alpino dataset.
-check: scores for DEP are for using gold POS
+scores for the combined tagger + parser, and for only the parser
 
 UDPipe:
 used predicted POS for training DEP.
@@ -37,7 +36,6 @@ scores for the whole pipeline
 Spacy:
 trained POS and DEP simulateously
 scores for the whole pipeline
-
 
 # Pre-trained word vectors
 
@@ -49,22 +47,26 @@ I trained vectors with each tool on the AEM corpus.
 
 A (simplistic) evaluation of the three vector sets is in the table below, following "Evaluating Unsupervised Dutch Word Embeddings as a Linguistic Resource" by Stephan Tulkens, Chris Emmery, Walter Daelemans (see the README's in the resources directory for more details.)
 
-|                    |  glove   | w2v   | fasttext-50 | fasttext-100 | paper |
-|--------------------|----------|-------|-------------|--------------|------ |
-|comparative         |  47.90   | 62.94 |   36.22     |  62.44       | 76.6  |
-|currency            |   5.51   | 11.40 |    9.56     |  13.60       | 15.0  |
-|gender              |  54.71   | 58.33 |   42.21     |  54.53       | 75.9  |
-|nationalities       |  14.86   | 26.99 |   24.09     |  31.34       | 21.6  |
-|pasttense           |  54.21   | 60.24 |   57.54     |  68.10       | 68.3  |
-|superlative         |  12.33   | 28.00 |   15.17     |  29.67       | 39.9  |
-|country             |  59.16   | 58.18 |   50.53     |  59.08       | 52.1  |
-|diminutives         |  12.32   | 16.85 |   17.75     |  34.06       | 44.9  |
-|infinitive          |  24.26   | 33.99 |   28.57     |  45.69       | 65.0  |
-|opposites           |   8.68   | 11.58 |   21.32     |  26.84       | 22.1  |
-|plural              |  41.09   | 35.03 |   29.50     |  48.31       | 57.4  |
-|Total accuracy      |  37.95   | 43.59 |   35.41     |  49.63       | 51.3  |
+|                    |  glove   | w2v   | fasttext-50 | fasttext-100 | paper | fasttext-300\* |
+|--------------------|----------|-------|-------------|--------------|------ |----------------|
+|comparative         |  47.90   | 62.94 |   36.22     |  62.44       | 76.6  |    61.51       |
+|currency            |   5.51   | 11.40 |    9.56     |  13.60       | 15.0  |     4.29       |
+|gender              |  54.71   | 58.33 |   42.21     |  54.53       | 75.9  |    43.66       |
+|nationalities       |  14.86   | 26.99 |   24.09     |  31.34       | 21.6  |    26.85       |
+|pasttense           |  54.21   | 60.24 |   57.54     |  68.10       | 68.3  |    41.67       |
+|superlative         |  12.33   | 28.00 |   15.17     |  29.67       | 39.9  |    22.46       |
+|country             |  59.16   | 58.18 |   50.53     |  59.08       | 52.1  |    35.52       |
+|diminutives         |  12.32   | 16.85 |   17.75     |  34.06       | 44.9  |    36.41       |
+|infinitive          |  24.26   | 33.99 |   28.57     |  45.69       | 65.0  |    31.35       |
+|opposites           |   8.68   | 11.58 |   21.32     |  26.84       | 22.1  |    22.89       |
+|plural              |  41.09   | 35.03 |   29.50     |  48.31       | 57.4  |    60.25       |
+|Total accuracy      |  37.95   | 43.59 |   35.41     |  49.63       | 51.3  |    39.22       |
 
 Questions seen/total: 85.85% (8624/10046)
+
+Fasttext-300 word vectors were trained on wikipedia, and use a different vocabulary.
+Questions seen/total: 97.13% (9758/10046)
+The vectors were downloaded form their website.
 
 ## Contextualilzed Word vectors
 
