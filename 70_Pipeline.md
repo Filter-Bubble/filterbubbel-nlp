@@ -39,12 +39,14 @@ TODO:
 
 TODO: 
 * use Stroll
+* map stroll SRL to NAF
 
 ## Coref
 
 TODO: 
 * use e2e and/or Stroll.
 * find out where in the pipeline this needs to be done.
+* map stroll coref annotation to NAF
 
 
 
