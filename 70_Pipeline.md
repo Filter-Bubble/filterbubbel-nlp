@@ -2,6 +2,8 @@
 
 [Documentation of existing pipeline](https://vu-rm-pip3.readthedocs.io/en/latest/)
 
+And [our clone](https://github.com/Filter-Bubble/vu-rm-pip3).
+
 * NAF formatting: text2naf
 * tokenizing: ixa-pipe-tok
 * POS tagging, lemmatization and parsing: vua-alpino
@@ -17,6 +19,8 @@
 * nominal event detection: vua-nominal-event-detection
 * nominal event srl labelling: vua-srl-dutch-nominal-events
 * FrameNet labelling: vua-framenet-classifier
+
+
 
 ## Install existing pipeline
 
