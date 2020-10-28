@@ -2,7 +2,6 @@
 
 [Documentation of existing pipeline](https://vu-rm-pip3.readthedocs.io/en/latest/)
 
-
 * NAF formatting: text2naf
 * tokenizing: ixa-pipe-tok
 * POS tagging, lemmatization and parsing: vua-alpino
@@ -23,20 +22,29 @@
 
 TODO: links to install scripts from github
 
-
 # Components to updated
 
-## POS / LEMMA / Dependency
+## Open issues
 
-TODO: use our Stanza trained on the large corpus
+1. We use UD for dependencies etc. Where in the pipeline do we need to make changes?
+2. We use conll (tab separated files) as output. Where do we convert to/from NAF?
 
-## SRL
 
-TODO: use Stroll
+## POS tagging, lemmatization and parsing
+
+TODO:
+* use our Stanza trained on the large corpus
+
+## semantic role labelling
+
+TODO: 
+* use Stroll
 
 ## Coref
 
-TODO: use e2e and/or Stroll
+TODO: 
+* use e2e and/or Stroll.
+* find out where in the pipeline this needs to be done.
 
 
 
